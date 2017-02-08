@@ -1,0 +1,21 @@
+{
+  "name": "svg-patcher",
+  "version": "0.1.0",
+  "description": "Save bandwidth by patching SVG files instead of downloading them multiple times",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getkey/svg-patcher.git"
+  },
+  "keywords": [
+    "SVG",
+    "patch",
+    "optimization",
+    "bandwidth"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/getkey/svg-patcher/issues"
+  },
+  "homepage": "https://github.com/getkey/svg-patcher#readme"
+}
