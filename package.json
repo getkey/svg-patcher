@@ -1,6 +1,6 @@
 {
   "name": "svg-patcher",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Save bandwidth by patching SVG files instead of downloading them multiple times",
   "main": "svg-patcher.js",
   "repository": {

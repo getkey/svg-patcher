@@ -38,7 +38,6 @@ svgPatcher.fetch('https://getkey.eu/magnifying_glass_icon.svg').then(svgDocument
 function patcher(svgDocument) {
 	// navigate and modify the SVG's DOM however you want
 	svgDocument.children[0].setAttribute("fill", "yellow");
-	return svgDocument;
 }
 
 svgPatcher.patch(svgDocument, patcher).then(img => {

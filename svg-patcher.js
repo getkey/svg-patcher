@@ -1,9 +1,10 @@
 var svgPatcher = (() => {
 	function patch (svgDocument, patcher, clonable = false) {
 		return new Promise((resolve, reject) => {
-			// TODO: make it possible not to have to return the svg Document
-			let patchedSvg = patcher(svgDocument.cloneNode(true)),
-				blob = new Blob([patchedSvg.outerHTML], {type: 'image/svg+xml;charset=utf-8'}), // convert DOMString to Blob
+			let newSvg = svgDocument.cloneNode(true);
+			patcher(newSvg);
+
+			let blob = new Blob([newSvg.outerHTML], {type: 'image/svg+xml;charset=utf-8'}), // convert DOMString to Blob
 				img = new Image();
 
 			img.addEventListener('load', ev => {
