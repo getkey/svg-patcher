@@ -31,9 +31,14 @@ var svgPatcher = (() => {
 			xhr.send();
 		});
 	}
+	// TODO
+	//function revoke(img) {
+		// https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+	//}
 
 	return {
 		patch,
-		fetch
+		fetch,
+		//revoke
 	};
 })();
