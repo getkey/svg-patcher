@@ -3,8 +3,10 @@ svgPatcher.fetch('example.svg').then(svgDocument => {
 		svgDocument.children[0].setAttribute('fill', 'yellow');
 		return svgDocument;
 	}
-	return svgPatcher.patch(svgDocument, patcher);
+	return svgPatcher.patch(svgDocument, patcher, true);
 }).then(img => {
 	console.log(img);
 	document.body.appendChild(img);
+	document.body.appendChild(img.cloneNode(true));
+	svgPatcher.revoke(img);
 });

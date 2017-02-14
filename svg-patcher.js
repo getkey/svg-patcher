@@ -1,5 +1,5 @@
 var svgPatcher = (() => {
-	function patch (svgDocument, patcher) {
+	function patch (svgDocument, patcher, clonable = false) {
 		return new Promise((resolve, reject) => {
 			// TODO: make it possible not to have to return the svg Document
 			let patchedSvg = patcher(svgDocument.cloneNode(true)),
@@ -7,6 +7,7 @@ var svgPatcher = (() => {
 				img = new Image();
 
 			img.addEventListener('load', ev => {
+				if (clonable === false) revoke(img);
 				resolve(ev.target);
 			});
 			img.addEventListener('error', err => {
@@ -31,14 +32,13 @@ var svgPatcher = (() => {
 			xhr.send();
 		});
 	}
-	// TODO
-	//function revoke(img) {
-		// https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
-	//}
+	function revoke(img) {
+		URL.revokeObjectURL(img.src);
+	}
 
 	return {
 		patch,
 		fetch,
-		//revoke
+		revoke
 	};
 })();
