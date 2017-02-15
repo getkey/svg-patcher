@@ -1,4 +1,12 @@
-var svgPatcher = (() => {
+((root, factory) => {
+	if (typeof define === 'function' && define.amd) { // AMD support
+		define('svg-patcher', [], factory);
+	} else {
+		root.svgPatcher = factory();
+	}
+})(window, () => {
+	'use strict';
+
 	function patch (svgDocument, patcher, clonable = false) {
 		return new Promise((resolve, reject) => {
 			let newSvg = svgDocument.cloneNode(true);
@@ -37,9 +45,10 @@ var svgPatcher = (() => {
 		URL.revokeObjectURL(img.src);
 	}
 
+
 	return {
 		patch,
 		fetch,
 		revoke
 	};
-})();
+});
