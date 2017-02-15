@@ -7,6 +7,8 @@ This library attempts to make this easy.
 
 Just start `example/example.html` in your browser.
 
+If you use Chrome you need to start it with the flag `--allow-file-access-from-files`. Don't worry, [your users won't have to do that](http://www.chrome-allow-file-access-from-file.com/). This is only needed when loading files from the file system.
+
 ## How to use
 
 Simply include `svg-patcher.js` in your project.
@@ -30,14 +32,14 @@ svgPatcher.fetch('https://getkey.eu/magnifying_glass_icon.svg').then(svgDocument
 * `patcher`: Function
 * `clonable`: Boolean
 
-`patcher` takes the svg `Document` you pass to `svgPatcher.patch()` as an argument.
+`patcher` takes the SVG `Document` you pass to `svgPatcher.patch()` as an argument.
 
 `svgPatcher.patch()` returns a `Promise` that resolves with a patched `Image`.
 
 ```javascript
 function patcher(svgDocument) {
 	// navigate and modify the SVG's DOM however you want
-	svgDocument.children[0].setAttribute("fill", "yellow");
+	svgDocument.children[0].setAttribute('fill', 'yellow');
 }
 
 svgPatcher.patch(svgDocument, patcher).then(img => {
