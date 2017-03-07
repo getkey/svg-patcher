@@ -9,5 +9,5 @@ requirejs(['svg-patcher'], svgPatcher => {
 		document.body.appendChild(img);
 		document.body.appendChild(img.cloneNode(true));
 		svgPatcher.revoke(img);
-	});
+	}).catch(console.error);
 });

@@ -32,9 +32,9 @@ svgPatcher.fetch('https://getkey.eu/magnifying_glass_icon.svg').then(svgDocument
 * `patcher`: Function
 * `clonable`: Boolean
 
-`patcher` takes the SVG `Document` you pass to `svgPatcher.patch()` as an argument.
+The `patcher` callback takes the SVG `Document` you pass to `svgPatcher.patch()` as an argument.
 
-`svgPatcher.patch()` returns a `Promise` that resolves with a patched `Image`.
+`svgPatcher.patch()` returns a `Promise` that resolves with a patched SVG [`Image`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement).
 
 ```javascript
 function patcher(svgDocument) {
